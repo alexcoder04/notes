@@ -1,0 +1,43 @@
+
+body {
+	font-family: sans-serif;
+	background-color: #fdf6e3;
+	color: #073642;
+}
+
+p {
+	font-size: 10pt;
+}
+
+a {
+	color: #268bd2;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #2aa198;
+}
+
+h1 {
+	font-size: 18pt;
+}
+
+pre {
+	font-size: 14pt;
+	padding: 1em;
+	line-height: 1.5em;
+}
+
+pre > a:first-child::before {
+	content: "⇑up ";
+}
+
+.disclaimer {
+	font-size: 0.6rem;
+}
+
+td {
+    padding-right: 3em;
+}
+
