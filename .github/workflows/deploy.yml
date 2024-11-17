@@ -19,7 +19,8 @@ jobs:
 
     - name: Build
       run: |
-        python3 ./webbuild.py
+        python3 ./webbuild.py clean
+        python3 ./webbuild.py build
         touch build/.nojekyll
         
     - name: Upload Artifacts
