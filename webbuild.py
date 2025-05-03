@@ -3,6 +3,7 @@
 from datetime import datetime
 import os
 import shutil
+import subprocess
 import sys
 
 SRC = "./src"
@@ -85,7 +86,7 @@ def build_folder(folder: str) -> None:
             target = ""
             if os.path.isfile(f"{SRC}/{folder}/{item}"):
                 target = "target='blank'"
-            mtime = datetime.fromtimestamp(os.path.getmtime(f"{SRC}/{folder}/{item}")).strftime('%Y-%m-%d %H:%M')
+            mtime = subprocess.run(["git", "log", "-1", "--format=%ad", "--date=format:%Y-%m-%d %H:%M", "--", f"{SRC}/{folder}/{item}"], capture_output=True, text=True).stdout
             size = getsize(f"{SRC}/{folder}/{item}")
             f.write(f"<tr><td><a href='{folder}/{item}' {target}>{item}</a></td><td>{mtime}</td><td>{size}</td></li>")
         f.write("</tbody></table>")
